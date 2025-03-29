@@ -1,16 +1,16 @@
 ﻿using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-public class Forest : Case
+public class Building : Case
 {
-    public Forest(int x, int y) : base(x, y)
-    {
-    }
-
+    [SerializeField] GameObject house, destroyedHousePrefab;
+    [SerializeField, Range(0,15)] private int score = 5;
+    
     [SerializeField] private JaugeGoutte waterSlider;
     [SerializeField] private GameObject waterCanvas;
-
+    
+    public Building(int x, int y) : base(x, y) {}
+    
     private void OnEnable() {
         waterCanvas.SetActive(false);
         waterCanvas.transform.localScale = Vector3.zero;
@@ -18,8 +18,12 @@ public class Forest : Case
     }
 
     public override void ApplyEffect() {
-        waterSlider.shouldDestroy = Wet();
+        var shouldDestroy = Wet();
+        waterSlider.shouldDestroy = shouldDestroy;
         waterCanvas.SetActive(true);
         waterSlider.SetImage(waterNested, WaterGiven);
+        if (!shouldDestroy) return;
+        Instantiate(destroyedHousePrefab, house.transform.position, Quaternion.identity); 
+        Destroy(house);
     }
 }

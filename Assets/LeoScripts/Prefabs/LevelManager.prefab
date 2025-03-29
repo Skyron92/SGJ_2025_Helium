@@ -49,4 +49,7 @@ MonoBehaviour:
   plainePrefab: {fileID: 3810086759784044683, guid: 0076aff1a43cc884989b3823b75e67e1, type: 3}
   forestPrefab: {fileID: 7439823450441954369, guid: c842f7ef94344324da381c02d498bcfa, type: 3}
   parkingPrefab: {fileID: 9020102880285446005, guid: 6f1224291acb32840b1886f1da279d4f, type: 3}
+  housePrefab: {fileID: 3810086759784044683, guid: e09417c8df52d84449720227822a3794, type: 3}
+  buildingPrefabs:
+  - {fileID: 3810086759784044683, guid: 69fef585ca97a1b4081d297b36cf4075, type: 3}
   waterPrefab: {fileID: 8994159673993912070, guid: 3d5ff66b3cc372e4db8a4e173d9f1023, type: 3}
