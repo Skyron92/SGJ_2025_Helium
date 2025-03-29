@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
         if (context.canceled) {
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit)) {
                 if (hit.transform.gameObject.TryGetComponent(out Case hitCase)) {
+                    if(!hitCase.CheckWaterInNeighbors()) return;
                     waterCount--;
                     hitCase.ApplyEffect();
                 }

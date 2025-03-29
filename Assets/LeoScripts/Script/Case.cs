@@ -9,8 +9,11 @@ public abstract class Case : MonoBehaviour
     [SerializeField] private GameObject waterPrefab;
     [SerializeField, Range(1,5)] protected int waterNested = 1;
     protected int WaterGiven;
+    public bool flooded;
+    public bool Floodable => CheckWaterInNeighbors();
 
-    private void CheckNeighbors() => LevelManager.instance.CheckNeighbors(position);
+    private void CheckParkingInNeighbors() => LevelManager.instance.CheckParkingInNeighbors(position);
+    public bool CheckWaterInNeighbors() => LevelManager.instance.CheckWaterInNeighbors(position);
 
     public abstract void ApplyEffect();
     
@@ -18,11 +21,12 @@ public abstract class Case : MonoBehaviour
         WaterGiven++;
         if (WaterGiven < waterNested) return false;
         Flood();
-        Invoke("CheckNeighbors", 0.3f);
+        Invoke("CheckParkingInNeighbors", 0.3f);
         return true;
     }
     
     protected void Flood() {
+        flooded = true;
         Instantiate(waterPrefab, transform.position + Vector3.down, Quaternion.identity);
     }
 }
