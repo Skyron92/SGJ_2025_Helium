@@ -8,17 +8,18 @@ public abstract class Case : MonoBehaviour
     public Vector2Int position;
     [SerializeField] private GameObject waterPrefab;
     [SerializeField, Range(1,5)] protected int waterNested = 1;
-    private int _waterGiven;
+    protected int WaterGiven;
 
     private void CheckNeighbors() => LevelManager.instance.CheckNeighbors(position);
 
     public abstract void ApplyEffect();
     
-    protected void Wet() {
-        _waterGiven++;
-        if (_waterGiven < waterNested) return;
+    protected bool Wet() {
+        WaterGiven++;
+        if (WaterGiven < waterNested) return false;
         Flood();
-        CheckNeighbors();
+        Invoke("CheckNeighbors", 0.3f);
+        return true;
     }
     
     protected void Flood() {
