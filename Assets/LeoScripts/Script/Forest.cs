@@ -1,9 +1,11 @@
 ﻿public class Forest : Case
 {
+    public Forest(int x, int y) : base(x, y)
+    {
+    }
+
     public override void ApplyEffect() {
-        if (Wet()) {
-            Flood();
-        } 
+        Wet();
         // Update le slider de Tom ici
     }
 }
