@@ -5,11 +5,11 @@ public abstract class Case : MonoBehaviour
     public Case(int x, int y) {
         position = new Vector2Int(x, y);
     }
-    public Vector2Int position;
+    [HideInInspector] public Vector2Int position;
     [SerializeField] private GameObject waterPrefab;
     [SerializeField, Range(1,5)] protected int waterNested = 1;
     protected int WaterGiven;
-    public bool flooded;
+    [HideInInspector] public bool flooded;
     public bool Floodable => CheckWaterInNeighbors();
 
     private void CheckParkingInNeighbors() => LevelManager.instance.CheckParkingInNeighbors(position);

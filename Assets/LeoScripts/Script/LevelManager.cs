@@ -26,9 +26,11 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] private GameObject plainePrefab;
     [SerializeField] private GameObject forestPrefab;
     [SerializeField] private GameObject parkingPrefab;
+    [SerializeField] private GameObject bassinPrefab;
     [SerializeField] private GameObject housePrefab;
     [SerializeField] private List<GameObject> buildingPrefabs;
     [SerializeField] private GameObject waterPrefab;
+    [SerializeField] private GameObject diguePrefab;
 
     public Case[,] CurrentGrid {
         get {
@@ -96,15 +98,29 @@ public class LevelManager : MonoBehaviour {
         }
     }
 
-    private GameObject SpawnCase(Type type, Vector3 position) {
+    public GameObject SpawnCase(Type type, Vector3 position) {
         if (type == typeof(Plaine)) return Instantiate(plainePrefab, position, Quaternion.identity);
         if (type == typeof(Forest)) return Instantiate(forestPrefab, position, Quaternion.identity);
         if (type == typeof(Parking)) return Instantiate(parkingPrefab, position, Quaternion.identity);
+        if (type == typeof(Bassin)) return Instantiate(bassinPrefab, position, Quaternion.identity);
         if (type == typeof(House)) return Instantiate(housePrefab, position, Quaternion.identity);
         if (type == typeof(Building)) return Instantiate(buildingPrefabs[Random.Range(0,buildingPrefabs.Count-1)], position, Quaternion.identity);
         if (type == typeof(Water)) return Instantiate(waterPrefab, position + Vector3.down, Quaternion.identity);
         return null;
     }
+
+    public void SpawnDigue(Vector2Int coord) {
+        void SpawnDigue(Vector3 offset) {
+            Instantiate(diguePrefab, CurrentGrid[coord.x, coord.y].transform.position + offset, Quaternion.identity);
+        }
+        if (!IsWater(coord.x + 1, coord.y)) SpawnDigue(new Vector3(1,1,0));
+        if (!IsWater(coord.x - 1, coord.y)) SpawnDigue(new Vector3(-1,1,0));
+        if (!IsWater(coord.x, coord.y + 1)) SpawnDigue(new Vector3(0,1,1));
+        if (!IsWater(coord.x, coord.y - 1)) SpawnDigue(new Vector3(0,1,-1));
+    }
+
+    public bool IsWater(int x, int y) => CurrentGrid[x, y].flooded || CurrentGrid[x,y] is Water;
+    public bool IsWater(Vector2Int pos) => CurrentGrid[pos.x, pos.y].flooded || CurrentGrid[pos.x,pos.y] is Water;
 
     public void CheckParkingInNeighbors(Vector2Int coordinate) {
         if (coordinate.x > 0) SearchParking(coordinate.x -1, coordinate.y);
@@ -113,10 +129,10 @@ public class LevelManager : MonoBehaviour {
         if (coordinate.y > 0) SearchParking(coordinate.x, coordinate.y - 1);
     }
     public bool CheckWaterInNeighbors(Vector2Int coordinate) {
-        return coordinate.x > 0 && SearchWater(coordinate.x -1, coordinate.y) ||
-        coordinate.x < 15 && SearchWater(coordinate.x + 1, coordinate.y) ||
-        coordinate.y < 15 && SearchWater(coordinate.x, coordinate.y + 1) ||
-        coordinate.y > 0 && SearchWater(coordinate.x, coordinate.y - 1);
+        return coordinate.x > 0 && IsWater(coordinate.x -1, coordinate.y) ||
+        coordinate.x < 15 && IsWater(coordinate.x + 1, coordinate.y) ||
+        coordinate.y < 15 && IsWater(coordinate.x, coordinate.y + 1) ||
+        coordinate.y > 0 && IsWater(coordinate.x, coordinate.y - 1);
     }
 
     private void SearchParking(int x, int y) {
@@ -125,5 +141,4 @@ public class LevelManager : MonoBehaviour {
             @case.ApplyEffect();
         }
     }
-    private bool SearchWater(int x, int y) => CurrentGrid[x, y].flooded || CurrentGrid[x,y] is Water;
 }
