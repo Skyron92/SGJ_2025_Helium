@@ -9,7 +9,7 @@ public class House : Case
 
     public override void ApplyEffect() {
         Wet();
-        Instantiate(destroyedHousePrefab, house.transform.position, Quaternion.identity);
+        Instantiate(destroyedHousePrefab, house.transform.position, new Quaternion(180,0,0,0), transform);
         Destroy(house);
     }
 }
