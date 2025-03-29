@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(player.is_paused);
+      
     }
 
     // Fonction appelée par le bouton Pause
@@ -20,13 +20,13 @@ public class UIManager : MonoBehaviour
         {
             Debug.Log("Jeu en pause !");
            
-            player.is_paused = true;
+          
         }
         else
         {
             
             Debug.Log("Jeu repris !");
-            player.is_paused = false;
+          
         }
     }
 }
