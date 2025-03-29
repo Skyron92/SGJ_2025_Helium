@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class TurnManager : MonoBehaviour
 {
-    private int _turnCounter = 0;
+    private int _turnCounter = 1;
     [SerializeField] private TextMeshProUGUI turnText;
     [SerializeField] private Button nextTurnButton;
     [SerializeField] private Player player;
@@ -19,29 +19,31 @@ public class TurnManager : MonoBehaviour
     private void SkipTurn() {
         _turnCounter++;
         turnText.text = _turnCounter + "/10";
+        DoAction();
+        nextTurnButton.interactable = true;
+        player.AddWater();
+    }
+
+    private void DoAction() {
         var level = LevelManager.instance;
         var tileCoord = PickTile();
         Type type = level.CurrentGrid[tileCoord.x, tileCoord.y].GetType();
         if (level.CurrentGrid[tileCoord.x, tileCoord.y].flooded || type == typeof(Water)) {
-            level.SpawnDigue(tileCoord);
-            return;
+            Debug.Log("On spawn une digue !");
+            //level.SpawnDigue(tileCoord);
         }
         if (type == typeof(Plaine)) {
             var oldTile = level.CurrentGrid[tileCoord.x, tileCoord.y]; 
             level.CurrentGrid[tileCoord.x, tileCoord.y] = new Bassin(tileCoord.x, tileCoord.y);
-            LevelManager.instance.SpawnCase(type, oldTile.transform.position);
+            LevelManager.instance.SpawnCase(typeof(Bassin), oldTile.transform.position);
             Destroy(oldTile.gameObject);
-            return;
         }
         if (type == typeof(Forest)) {
             var oldTile = level.CurrentGrid[tileCoord.x, tileCoord.y];
             level.CurrentGrid[tileCoord.x, tileCoord.y] = new Parking(tileCoord.x, tileCoord.y);
-            LevelManager.instance.SpawnCase(type, oldTile.transform.position);
+            LevelManager.instance.SpawnCase(typeof(Parking), oldTile.transform.position);
             Destroy(oldTile.gameObject);
-            return;
         }
-        nextTurnButton.interactable = true;
-        player.AddWater();
     }
 
     private Vector2Int PickTile() {

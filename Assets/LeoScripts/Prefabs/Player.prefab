@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226d2b8bce2f46ebb8c6dd7a77b8f75f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterCount: 5
+  waterCount: 3
+  is_paused: 0
 --- !u!114 &3689526508343105263
 MonoBehaviour:
   m_ObjectHideFlags: 0
