@@ -6,14 +6,18 @@ public class UIManager : MonoBehaviour
 
     public Player player;
 
-    private void Update()
+    public AudioClip soundClip;
+    private AudioSource audioSource;
+
+    void Start()
     {
-      
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     // Fonction appelée par le bouton Pause
     public void TogglePause()
     {
+        audioSource.PlayOneShot(soundClip);
         isPaused = !isPaused; // Inverse l'état de la pause
 
         if (isPaused)

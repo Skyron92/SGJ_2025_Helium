@@ -3,14 +3,24 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
+    public List<AudioClip> waterSounds;
+    public AudioClip clickSound;
+    private AudioSource audioSource;
 
     [SerializeField] private int waterCount;
     [SerializeField] private TextMeshProUGUI waterText;
     [SerializeField] private Button turnButton;
     public bool is_paused;
+
+    void Start()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+    }
+
 
     public void ChangeWater(int amount) {
         waterCount += amount;
@@ -45,7 +55,10 @@ public class Player : MonoBehaviour
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit)) {
                 if (hit.transform.gameObject.TryGetComponent(out Case hitCase)) {
                     if (!hitCase.CheckWaterInNeighbors()) return;
+                    audioSource.PlayOneShot(clickSound);
                     ChangeWater(-1);
+                    int randomIndex = Random.Range(0, waterSounds.Count);
+                    audioSource.PlayOneShot(waterSounds[randomIndex]);
                     hitCase.ApplyEffect();
                 }
             }
