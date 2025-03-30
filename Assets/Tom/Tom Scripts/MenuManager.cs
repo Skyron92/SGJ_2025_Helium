@@ -7,6 +7,10 @@ public class MenuManager : MonoBehaviour
     public GameObject OptionsUI;
     public GameObject Menu;
     public GameObject Credits;
+    public GameObject QuitUI;
+
+    public GameObject QuitBouton;
+
 
     public AudioClip soundClip;  
     private AudioSource audioSource;
@@ -14,6 +18,9 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
+        #if UNITY_WEBGL
+        QuitBouton.SetActive(false);
+        #endif 
     }
 
     public void Load_Level_1()
