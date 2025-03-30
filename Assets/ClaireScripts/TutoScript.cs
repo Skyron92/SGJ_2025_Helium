@@ -6,8 +6,13 @@ public class TutoScript : MonoBehaviour
     private int currentWidgetIndex = 0;
     private bool isActive = true;
     [SerializeField] private Player player;
+    public bool isEnded;
+    
+    public static TutoScript instance;
 
     void Start() {
+        if(instance == null) instance = this;
+        else if(instance != this) Destroy(instance.gameObject);
         player.is_paused = true;
         ShowWidget(currentWidgetIndex);
     }

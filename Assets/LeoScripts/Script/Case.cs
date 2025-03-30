@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public abstract class Case : MonoBehaviour
 {
@@ -43,21 +44,20 @@ public abstract class Case : MonoBehaviour
     }
 
     private void OnMouseEnter() {
+        if(SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0)) return;
+        if(TutoScript.instance != null) return;
         widgetsInfos.SetActive(true);
         if (CheckWaterInNeighbors()) {
             hoverPlane.SetActive(true);
             hoverPlane.GetComponent<Renderer>().material.color = Color.cyan;
         }
-        else
-        {
+        else {
             hoverPlane.SetActive(true);
             hoverPlane.GetComponent<Renderer>().material.color = Color.red;
         }
+    }
 
-        }
-
-    private void OnMouseExit()
-    {
+    private void OnMouseExit() {
         widgetsInfos.SetActive(false);
         hoverPlane.SetActive(false);
     }
