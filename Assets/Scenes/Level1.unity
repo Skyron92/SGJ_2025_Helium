@@ -302,10 +302,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8287860552718676342, guid: 842b945c23e0e00409b103b56a9bb6b7, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 9069473cff02a954e8d4d8057a14a3ec, type: 3}
     - target: {fileID: 8756140167682134866, guid: 842b945c23e0e00409b103b56a9bb6b7, type: 3}
       propertyPath: m_fontSizeBase
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 9016950438148361395, guid: 842b945c23e0e00409b103b56a9bb6b7, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: fc215a2276f4d354eaea977485e46cde, type: 3}
+    - target: {fileID: 9041973365040746135, guid: 842b945c23e0e00409b103b56a9bb6b7, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: aa8da25f735cd3c43ace258309e4eb6b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3722645826223025344, guid: 842b945c23e0e00409b103b56a9bb6b7, type: 3}
