@@ -42,7 +42,6 @@ public abstract class Case : MonoBehaviour
     }
 
     private void OnMouseEnter() {
-        Debug.Log("Mouse entered");
         widgetsInfos.SetActive(true);
         if (CheckWaterInNeighbors()) {
             hoverPlane.SetActive(true);
