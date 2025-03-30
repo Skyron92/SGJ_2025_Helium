@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour {
     [SerializeField, Range(0, 2)] private float step = 0.2f;
 
     [Header("Cases prefabs")] 
-    [SerializeField] private GameObject plainePrefab;
+    [SerializeField] private List<GameObject> plainePrefab;
     [SerializeField] private GameObject forestPrefab;
     [SerializeField] private GameObject parkingPrefab;
     [SerializeField] private GameObject bassinPrefab;
@@ -100,7 +100,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public GameObject SpawnCase(Type type, Vector3 position) {
-        if (type == typeof(Plaine)) return Instantiate(plainePrefab, position, Quaternion.identity);
+        if (type == typeof(Plaine)) return Instantiate(plainePrefab[Random.Range(0,plainePrefab.Count-1)], position, Quaternion.identity);
         if (type == typeof(Forest)) return Instantiate(forestPrefab, position, Quaternion.identity);
         if (type == typeof(Parking)) return Instantiate(parkingPrefab, position, Quaternion.identity);
         if (type == typeof(Bassin)) return Instantiate(bassinPrefab, position, Quaternion.identity);

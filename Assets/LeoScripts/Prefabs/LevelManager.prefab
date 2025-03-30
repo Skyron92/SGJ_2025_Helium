@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 0
   step: 0.2
-  plainePrefab: {fileID: 3810086759784044683, guid: 0076aff1a43cc884989b3823b75e67e1, type: 3}
+  plainePrefab:
+  - {fileID: 3810086759784044683, guid: 0076aff1a43cc884989b3823b75e67e1, type: 3}
   forestPrefab: {fileID: 7439823450441954369, guid: c842f7ef94344324da381c02d498bcfa, type: 3}
   parkingPrefab: {fileID: 9020102880285446005, guid: 6f1224291acb32840b1886f1da279d4f, type: 3}
   bassinPrefab: {fileID: 9020102880285446005, guid: ab9909d81040ee34db608c2a20529bd9, type: 3}
