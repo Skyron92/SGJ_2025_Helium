@@ -15,10 +15,15 @@ public abstract class Case : MonoBehaviour
     private void CheckParkingInNeighbors() => LevelManager.instance.CheckParkingInNeighbors(position);
     public bool CheckWaterInNeighbors() => LevelManager.instance.CheckWaterInNeighbors(position);
 
-    private GameObject widgetsInfos;
+    public GameObject widgetsInfos;
+    public GameObject hoverPlane;
 
     public abstract void ApplyEffect();
     
+    void Start()
+    {
+        hoverPlane.SetActive(false);
+    }
     protected bool Wet() {
         WaterGiven++;
         if (WaterGiven < waterNested) return false;
@@ -34,11 +39,16 @@ public abstract class Case : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        Debug.Log("Has water in neighbors : " + CheckWaterInNeighbors());
+        Debug.Log("Hover");
+        if (CheckWaterInNeighbors())
+        {
+            hoverPlane.SetActive(true);
+        }
+        
     }
 
     private void OnMouseExit()
     {
-        Debug.Log("Mouse exit");
+        hoverPlane.SetActive(false);
     }
 }
