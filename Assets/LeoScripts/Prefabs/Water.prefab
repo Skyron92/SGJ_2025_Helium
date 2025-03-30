@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 252123405223787179}
   - component: {fileID: 6259290162752449375}
   - component: {fileID: 1599576318358015968}
+  - component: {fileID: 387991900161138618}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -123,3 +124,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer: {fileID: 252123405223787179}
   _waterSpeed: 1
+--- !u!114 &387991900161138618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8994159673993912070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72037e2d6a8f49748f2613f11785ace4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {x: 0, y: 0}
+  waterPrefab: {fileID: 8994159673993912070}
+  waterNested: 0
+  waterGiven: 0
+  flooded: 0

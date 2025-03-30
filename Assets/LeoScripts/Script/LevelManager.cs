@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -103,6 +104,7 @@ public class LevelManager : MonoBehaviour {
         if (type == typeof(Forest)) return Instantiate(forestPrefab, position, Quaternion.identity);
         if (type == typeof(Parking)) return Instantiate(parkingPrefab, position, Quaternion.identity);
         if (type == typeof(Bassin)) return Instantiate(bassinPrefab, position, Quaternion.identity);
+        if (type == typeof(Digue)) return Instantiate(diguePrefab, position, Quaternion.identity);
         if (type == typeof(House)) return Instantiate(housePrefab, position, Quaternion.identity);
         if (type == typeof(Building)) return Instantiate(buildingPrefabs[Random.Range(0,buildingPrefabs.Count-1)], position, Quaternion.identity);
         if (type == typeof(Water)) return Instantiate(waterPrefab, position + Vector3.down, Quaternion.identity);
@@ -133,6 +135,28 @@ public class LevelManager : MonoBehaviour {
         coordinate.x < 15 && IsWater(coordinate.x + 1, coordinate.y) ||
         coordinate.y < 15 && IsWater(coordinate.x, coordinate.y + 1) ||
         coordinate.y > 0 && IsWater(coordinate.x, coordinate.y - 1);
+    }
+
+    public void BreakDigue(Vector2Int coord) {
+        StartCoroutine(FloodNeighbors(coord, 2));
+    }
+
+    IEnumerator FloodNeighbors(Vector2Int coord, int wave) {
+        List<Case> neighbors = new List<Case>();
+        if(coord.x > 0 && IsWater(coord + Vector2Int.right)) neighbors.Add(CurrentGrid[coord.x + 1, coord.y]);
+        if(coord.x < 15 && IsWater(coord + Vector2Int.left)) neighbors.Add(CurrentGrid[coord.x - 1, coord.y]);
+        if(coord.y > 0 && IsWater(coord + Vector2Int.up)) neighbors.Add(CurrentGrid[coord.x, coord.y + 1]);
+        if(coord.y < 15 && IsWater(coord + Vector2Int.down)) neighbors.Add(CurrentGrid[coord.x, coord.y - 1]);
+        foreach (var @case in neighbors) {
+            @case.waterGiven = @case.waterNested;
+            @case.ApplyEffect();
+        }
+        wave--;
+        if(wave <= 0) yield break;
+        yield return new WaitForSeconds(0.5f);
+        foreach (var @case in neighbors) {
+            StartCoroutine(FloodNeighbors(@case.position, wave));
+        }
     }
 
     private void SearchParking(int x, int y) {

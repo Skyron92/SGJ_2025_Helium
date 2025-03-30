@@ -21,7 +21,7 @@ public class Building : Case
         var shouldDestroy = Wet();
         waterSlider.shouldDestroy = shouldDestroy;
         waterCanvas.SetActive(true);
-        waterSlider.SetImage(waterNested, WaterGiven);
+        waterSlider.SetImage(waterNested, waterGiven);
         if (!shouldDestroy) return;
         Instantiate(destroyedHousePrefab, house.transform.position, Quaternion.identity, transform); 
         Destroy(house);
