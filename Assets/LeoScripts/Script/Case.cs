@@ -23,6 +23,11 @@ public abstract class Case : MonoBehaviour
     void Start()
     {
         hoverPlane.SetActive(false);
+        if (hoverPlane != null)
+        {
+            Renderer renderer = hoverPlane.GetComponent<Renderer>();
+        }
+
     }
     protected bool Wet() {
         WaterGiven++;
@@ -43,6 +48,7 @@ public abstract class Case : MonoBehaviour
         if (CheckWaterInNeighbors())
         {
             hoverPlane.SetActive(true);
+            GetComponent<Renderer>().material.color = Color.green;
         }
         
     }
