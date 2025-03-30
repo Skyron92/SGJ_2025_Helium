@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
 
     public void AddScore(int increment) {
         _score += increment;
-        scoreText.text = _score+" 000";
+        scoreText.text = _score+" 000 / " + LevelManager.instance.GetScoreGoal();
         if (_score * 1000 >= LevelManager.instance.GetScoreGoal()) {
             Win();
         }
@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
     public void ChangeWater(int amount) {
         waterCount += amount;
         waterCount = Mathf.Clamp(waterCount, 0, 5);
-        waterText.text = waterCount.ToString();
+        waterText.text = waterCount.ToString() + " / 5";
         waterText.transform.DOScale(new Vector3(1,3,1) * 1.3f, 0.2f).onComplete += () => 
             waterText.transform.DOScale(new Vector3(1,3,1), 0.2f);
     }
