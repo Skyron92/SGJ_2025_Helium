@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.9245283, g: 0.5800107, b: 0.78736997, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.039
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 8e86b11318a130c4d848e4c3aebf67a4, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -238,7 +238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &176697540
 Transform:
   m_ObjectHideFlags: 0
@@ -288,6 +288,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OptionsUI: {fileID: 1410176755}
+  Menu: {fileID: 0}
+  Credits: {fileID: 0}
 --- !u!4 &277879728
 Transform:
   m_ObjectHideFlags: 0
@@ -332,14 +334,14 @@ RectTransform:
   m_GameObject: {fileID: 670244840}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.74, y: 3.74, z: 3.74}
+  m_LocalScale: {x: 3.03, y: 3.03, z: 3.03}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 176697540}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -539, y: 298}
+  m_AnchoredPosition: {x: -688, y: -441}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &670244842
@@ -574,7 +576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &925640735
 RectTransform:
   m_ObjectHideFlags: 0
@@ -584,14 +586,14 @@ RectTransform:
   m_GameObject: {fileID: 925640734}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.6200004, y: 7.6200004, z: 7.6200004}
+  m_LocalScale: {x: 7.43, y: 7.43, z: 7.43}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 45761853}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 511, y: 19}
+  m_AnchoredPosition: {x: 4, y: 36}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &925640736
@@ -1151,6 +1153,7 @@ GameObject:
   - component: {fileID: 1951617306}
   - component: {fileID: 1951617305}
   - component: {fileID: 1951617308}
+  - component: {fileID: 1951617309}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1276,6 +1279,20 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1951617309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951617304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7480ca516e087254e869030a4ca4a4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed1: 0.75
+  speed2: 0.5
 --- !u!1 &2077345523
 GameObject:
   m_ObjectHideFlags: 0
