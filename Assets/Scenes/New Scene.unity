@@ -282,6 +282,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 5b23d61c0cc52a346b3d5eb333672750, type: 3}
+    - target: {fileID: 1648183555622170125, guid: 842b945c23e0e00409b103b56a9bb6b7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 886635507}
     - target: {fileID: 2017892904037417681, guid: 842b945c23e0e00409b103b56a9bb6b7, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.735539
@@ -413,6 +417,10 @@ PrefabInstance:
     - target: {fileID: 5823858646336422851, guid: 842b945c23e0e00409b103b56a9bb6b7, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756140167682134866, guid: 842b945c23e0e00409b103b56a9bb6b7, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1258,6 +1266,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78725a208b93c0449b4c1b2a7c1e4d60, type: 3}
+--- !u!114 &1048993189 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4091192638919361789, guid: 842b945c23e0e00409b103b56a9bb6b7, type: 3}
+  m_PrefabInstance: {fileID: 124137022}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1088791299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,6 +1440,7 @@ MonoBehaviour:
   - {fileID: 431509483}
   - {fileID: 1681961087}
   - {fileID: 223408204}
+  player: {fileID: 886635507}
 --- !u!4 &1145137134
 Transform:
   m_ObjectHideFlags: 0
@@ -2106,6 +2126,10 @@ PrefabInstance:
       propertyPath: waterText
       value: 
       objectReference: {fileID: 844288506}
+    - target: {fileID: 3058809716501609228, guid: 03ee4a675076ed648b6efa02e53c1e75, type: 3}
+      propertyPath: turnButton
+      value: 
+      objectReference: {fileID: 1048993189}
     - target: {fileID: 6575431919194316881, guid: 03ee4a675076ed648b6efa02e53c1e75, type: 3}
       propertyPath: m_Name
       value: Player
