@@ -23,6 +23,7 @@ public abstract class Case : MonoBehaviour
     void Start()
     {
         hoverPlane.SetActive(false);
+        widgetsInfos.SetActive(false);
         if (hoverPlane != null)
         {
             Renderer renderer = hoverPlane.GetComponent<Renderer>();
@@ -44,7 +45,7 @@ public abstract class Case : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        Debug.Log("Hover");
+        widgetsInfos.SetActive(true);
         if (CheckWaterInNeighbors())
         {
             hoverPlane.SetActive(true);
@@ -60,6 +61,7 @@ public abstract class Case : MonoBehaviour
 
     private void OnMouseExit()
     {
+        widgetsInfos.SetActive(false);
         hoverPlane.SetActive(false);
     }
 }
