@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -15,6 +16,8 @@ public class Player : MonoBehaviour
         waterCount += amount;
         waterCount = Mathf.Clamp(waterCount, 0, 5);
         waterText.text = waterCount.ToString();
+        waterText.transform.DOScale(Vector3.one * 1.3f, 0.2f).onComplete += () => 
+            waterText.transform.DOScale(Vector3.one, 0.2f);
     }
 
     public void SetPause() {
@@ -27,7 +30,18 @@ public class Player : MonoBehaviour
     }
     
     public void OnClick(InputAction.CallbackContext context) {
-        if(waterCount <= 0 || is_paused) return;
+        if(is_paused) return;
+        if (waterCount <= 0)
+        {
+            var pos = waterText.transform.position;
+            waterText.transform.DOShakePosition(0.5f, 3, 10, 0, true).onComplete += () => 
+                waterText.transform.position = pos;
+            waterText.DOColor(Color.red, 0.3f).onComplete += () => 
+                waterText.DOColor(Color.white, 0.2f).onComplete += () => 
+                    waterText.DOColor(Color.red, 0.3f).onComplete += () => 
+                        waterText.DOColor(Color.white, 0.2f) ;
+            return;
+        }
         if (context.canceled) {
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit)) {
                 if (hit.transform.gameObject.TryGetComponent(out Case hitCase)) {
