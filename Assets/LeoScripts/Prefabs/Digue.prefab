@@ -70,7 +70,13 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   waterPrefab: {fileID: 0}
   waterNested: 1
+  waterGiven: 0
   flooded: 0
+  widgetsInfos: {fileID: 0}
+  hoverPlane: {fileID: 0}
+  waterSlider: {fileID: 0}
+  waterCanvas: {fileID: 0}
+  digue: {fileID: 0}
 --- !u!1001 &1882346902336367196
 PrefabInstance:
   m_ObjectHideFlags: 0

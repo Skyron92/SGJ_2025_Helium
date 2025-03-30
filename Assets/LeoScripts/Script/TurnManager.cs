@@ -29,8 +29,10 @@ public class TurnManager : MonoBehaviour
         var tileCoord = PickTile();
         Type type = level.CurrentGrid[tileCoord.x, tileCoord.y].GetType();
         if (level.CurrentGrid[tileCoord.x, tileCoord.y].flooded || type == typeof(Water)) {
-            Debug.Log("On spawn une digue !");
-            //level.SpawnDigue(tileCoord);
+            var oldTile = level.CurrentGrid[tileCoord.x, tileCoord.y];
+            level.CurrentGrid[tileCoord.x, tileCoord.y] = new Digue(tileCoord.x, tileCoord.y);
+            level.SpawnCase(typeof(Digue), oldTile.transform.position);
+            Destroy(oldTile.gameObject);
         }
         if (type == typeof(Plaine)) {
             var oldTile = level.CurrentGrid[tileCoord.x, tileCoord.y]; 

@@ -17,6 +17,6 @@ public class Bassin : Case
     public override void ApplyEffect() {
         waterSlider.shouldDestroy = Wet();
         waterCanvas.SetActive(true);
-        waterSlider.SetImage(waterNested, WaterGiven);
+        waterSlider.SetImage(waterNested, waterGiven);
     }
 }
