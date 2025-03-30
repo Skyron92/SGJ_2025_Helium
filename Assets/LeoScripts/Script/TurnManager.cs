@@ -21,7 +21,7 @@ public class TurnManager : MonoBehaviour
         turnText.text = _turnCounter + "/10";
         DoAction();
         nextTurnButton.interactable = true;
-        player.AddWater();
+        player.ChangeWater(3);
     }
 
     private void DoAction() {

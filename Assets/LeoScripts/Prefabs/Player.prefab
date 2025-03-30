@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterCount: 3
+  waterText: {fileID: 0}
+  turnButton: {fileID: 0}
   is_paused: 0
 --- !u!114 &3689526508343105263
 MonoBehaviour:
@@ -88,6 +90,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 865d9169-cc99-4cee-a3f8-18f8b510f826
     m_ActionName: 'Main/Click[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3058809716501609228}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 10fee1e9-5a8e-4250-9f82-318c8d123377
+    m_ActionName: 'Main/Pause[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Main
