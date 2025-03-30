@@ -1526,14 +1526,6 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1660642801492838830, guid: 78725a208b93c0449b4c1b2a7c1e4d60, type: 3}
-      propertyPath: scoreGoalLevel1
-      value: 5000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1660642801492838830, guid: 78725a208b93c0449b4c1b2a7c1e4d60, type: 3}
-      propertyPath: scoreGoalLevel2
-      value: 5000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1660642801492838830, guid: 78725a208b93c0449b4c1b2a7c1e4d60, type: 3}
       propertyPath: buildingPrefabs.Array.size
       value: 6
       objectReference: {fileID: 0}
