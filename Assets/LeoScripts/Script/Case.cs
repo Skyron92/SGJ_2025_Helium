@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class Case : MonoBehaviour
 {
@@ -7,8 +8,8 @@ public abstract class Case : MonoBehaviour
     }
     [HideInInspector] public Vector2Int position;
     [SerializeField] private GameObject waterPrefab;
-    [SerializeField, Range(1,5)] protected int waterNested = 1;
-    protected int WaterGiven;
+    [Range(1,5)] public int waterNested = 1; 
+    [HideInInspector] public int waterGiven;
     [HideInInspector] public bool flooded;
     public bool Floodable => CheckWaterInNeighbors();
 
@@ -20,19 +21,16 @@ public abstract class Case : MonoBehaviour
 
     public abstract void ApplyEffect();
     
-    void Start()
-    {
+    void Start() {
         hoverPlane.SetActive(false);
         widgetsInfos.SetActive(false);
-        if (hoverPlane != null)
-        {
+        if (hoverPlane != null) {
             Renderer renderer = hoverPlane.GetComponent<Renderer>();
         }
-
     }
     protected bool Wet() {
-        WaterGiven++;
-        if (WaterGiven < waterNested) return false;
+        waterGiven++;
+        if (waterGiven < waterNested) return false;
         Flood();
         Invoke("CheckParkingInNeighbors", 0.3f);
         return true;
@@ -43,11 +41,10 @@ public abstract class Case : MonoBehaviour
         Instantiate(waterPrefab, transform.position + Vector3.down, Quaternion.identity);
     }
 
-    private void OnMouseEnter()
-    {
+    private void OnMouseEnter() {
+        Debug.Log("Mouse entered");
         widgetsInfos.SetActive(true);
-        if (CheckWaterInNeighbors())
-        {
+        if (CheckWaterInNeighbors()) {
             hoverPlane.SetActive(true);
             hoverPlane.GetComponent<Renderer>().material.color = Color.cyan;
         }
