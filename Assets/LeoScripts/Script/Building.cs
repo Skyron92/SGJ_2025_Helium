@@ -23,7 +23,7 @@ public class Building : Case
         waterCanvas.SetActive(true);
         waterSlider.SetImage(waterNested, WaterGiven);
         if (!shouldDestroy) return;
-        Instantiate(destroyedHousePrefab, house.transform.position, Quaternion.identity); 
+        Instantiate(destroyedHousePrefab, house.transform.position, Quaternion.identity, transform); 
         Destroy(house);
     }
 }

@@ -15,6 +15,8 @@ public abstract class Case : MonoBehaviour
     private void CheckParkingInNeighbors() => LevelManager.instance.CheckParkingInNeighbors(position);
     public bool CheckWaterInNeighbors() => LevelManager.instance.CheckWaterInNeighbors(position);
 
+    private GameObject widgetsInfos;
+
     public abstract void ApplyEffect();
     
     protected bool Wet() {
@@ -28,5 +30,18 @@ public abstract class Case : MonoBehaviour
     protected void Flood() {
         flooded = true;
         Instantiate(waterPrefab, transform.position + Vector3.down, Quaternion.identity);
+    }
+
+   void OnMouseEnter()
+    {
+        
+        if (CheckWaterInNeighbors())
+        {
+            Debug.Log("Yes");
+        }
+        else
+        {
+            Debug.Log("No");
+        }
     }
 }

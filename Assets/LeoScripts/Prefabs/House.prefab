@@ -126,8 +126,8 @@ MonoBehaviour:
   waterPrefab: {fileID: 8994159673993912070, guid: 3d5ff66b3cc372e4db8a4e173d9f1023, type: 3}
   waterNested: 1
   flooded: 0
-  house: {fileID: 919132149155446097, guid: 664f679568b3ddb4d87d2a2f587b5558, type: 3}
-  destroyedHousePrefab: {fileID: 919132149155446097, guid: 9e9728fec1f97c54e8bfb2bdee0f4baf, type: 3}
+  house: {fileID: 867598849428227823}
+  destroyedHousePrefab: {fileID: 3882781496782868996, guid: 41f1dee1057d04f42b653a3556b4f06d, type: 3}
   score: 5
 --- !u!1001 &57206900377795518
 PrefabInstance:
@@ -195,7 +195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 664f679568b3ddb4d87d2a2f587b5558, type: 3}
       propertyPath: m_Name
-      value: house
+      value: houseInstance
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -205,5 +205,10 @@ PrefabInstance:
 --- !u!4 &522844313601006677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 664f679568b3ddb4d87d2a2f587b5558, type: 3}
+  m_PrefabInstance: {fileID: 57206900377795518}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &867598849428227823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 664f679568b3ddb4d87d2a2f587b5558, type: 3}
   m_PrefabInstance: {fileID: 57206900377795518}
   m_PrefabAsset: {fileID: 0}
