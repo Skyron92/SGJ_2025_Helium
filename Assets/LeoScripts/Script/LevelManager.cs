@@ -89,13 +89,17 @@ public class LevelManager : MonoBehaviour {
                 var @case = CurrentGrid[i, j];
                 Type type = @case.GetType();
                 var go = SpawnCase(type, position + Vector3.down);
-                if (go != null) {
-                    var spawnedCase = go.GetComponent<Case>();
-                    if(spawnedCase == null) continue;
-                    spawnedCase.position = new(i,j);
-                    CurrentGrid[i, j] = spawnedCase;
-                }
+                InsertSpawnedCase(go, i, j);
             }
+        }
+    }
+
+    public void InsertSpawnedCase(GameObject go, int x, int y) {
+        if (go != null) {
+            var spawnedCase = go.GetComponent<Case>();
+            if(spawnedCase == null) return;
+            spawnedCase.position = new(x,y);
+            CurrentGrid[x, y] = spawnedCase;
         }
     }
 

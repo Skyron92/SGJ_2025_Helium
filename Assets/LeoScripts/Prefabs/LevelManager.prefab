@@ -60,4 +60,4 @@ MonoBehaviour:
   - {fileID: 3810086759784044683, guid: 23cf23ac27121de4bbe2625baaf20472, type: 3}
   - {fileID: 3810086759784044683, guid: c10be4cc634c0d24e9ecc74e8fdedb4f, type: 3}
   waterPrefab: {fileID: 8994159673993912070, guid: 3d5ff66b3cc372e4db8a4e173d9f1023, type: 3}
-  diguePrefab: {fileID: 9020102880285446005, guid: d9168891532d97a418c229640487452c, type: 3}
+  diguePrefab: {fileID: 8994159673993912070, guid: 391e6ea9fc627844ab4ad42e5e74ab0c, type: 3}

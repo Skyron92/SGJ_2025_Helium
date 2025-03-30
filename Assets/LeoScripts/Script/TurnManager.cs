@@ -31,19 +31,25 @@ public class TurnManager : MonoBehaviour
         if (level.CurrentGrid[tileCoord.x, tileCoord.y].flooded || type == typeof(Water)) {
             var oldTile = level.CurrentGrid[tileCoord.x, tileCoord.y];
             level.CurrentGrid[tileCoord.x, tileCoord.y] = new Digue(tileCoord.x, tileCoord.y);
-            level.SpawnCase(typeof(Digue), oldTile.transform.position + Vector3.down);
+            var go = level.SpawnCase(typeof(Digue), oldTile.transform.position + Vector3.down);
+            level.InsertSpawnedCase(go, tileCoord.x, tileCoord.y);
             Destroy(oldTile.gameObject);
         }
         if (type == typeof(Plaine)) {
             var oldTile = level.CurrentGrid[tileCoord.x, tileCoord.y]; 
             level.CurrentGrid[tileCoord.x, tileCoord.y] = new Bassin(tileCoord.x, tileCoord.y);
-            LevelManager.instance.SpawnCase(typeof(Bassin), oldTile.transform.position + Vector3.down);
+            var go = level.SpawnCase(typeof(Bassin), oldTile.transform.position + Vector3.down);
+            level.InsertSpawnedCase(go, tileCoord.x, tileCoord.y);
             Destroy(oldTile.gameObject);
         }
         if (type == typeof(Forest)) {
+            Debug.Log("On est tombé sur forêt !");
             var oldTile = level.CurrentGrid[tileCoord.x, tileCoord.y];
+            Debug.Log("On récupère " + oldTile);
             level.CurrentGrid[tileCoord.x, tileCoord.y] = new Parking(tileCoord.x, tileCoord.y);
-            var go = LevelManager.instance.SpawnCase(typeof(Parking), oldTile.transform.position + Vector3.down);
+            Debug.Log("On le remplace par "+level.CurrentGrid[tileCoord.x, tileCoord.y]);
+            var go = level.SpawnCase(typeof(Parking), oldTile.transform.position + Vector3.down);
+            level.InsertSpawnedCase(go, tileCoord.x, tileCoord.y);
             Destroy(oldTile.gameObject);
         }
     }
