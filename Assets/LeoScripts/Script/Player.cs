@@ -31,18 +31,17 @@ public class Player : MonoBehaviour
     
     public void OnClick(InputAction.CallbackContext context) {
         if(is_paused) return;
-        if (waterCount <= 0)
-        {
-            var pos = waterText.transform.position;
-            waterText.transform.DOShakePosition(0.5f, 3, 10, 0, true).onComplete += () => 
-                waterText.transform.position = pos;
-            waterText.DOColor(Color.red, 0.3f).onComplete += () => 
-                waterText.DOColor(Color.white, 0.2f).onComplete += () => 
-                    waterText.DOColor(Color.red, 0.3f).onComplete += () => 
-                        waterText.DOColor(Color.white, 0.2f) ;
-            return;
-        }
         if (context.canceled) {
+            if (waterCount <= 0) {
+                var pos = waterText.transform.position;
+                waterText.transform.DOShakePosition(0.5f, 3, 10, 0, true).onComplete += () => 
+                    waterText.transform.position = pos;
+                waterText.DOColor(Color.red, 0.3f).onComplete += () => 
+                    waterText.DOColor(Color.white, 0.2f).onComplete += () => 
+                        waterText.DOColor(Color.red, 0.3f).onComplete += () => 
+                            waterText.DOColor(Color.white, 0.2f) ;
+                return;
+            }
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit)) {
                 if (hit.transform.gameObject.TryGetComponent(out Case hitCase)) {
                     if (!hitCase.CheckWaterInNeighbors()) return;
