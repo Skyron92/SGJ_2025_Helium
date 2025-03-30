@@ -15,10 +15,21 @@ public abstract class Case : MonoBehaviour
     private void CheckParkingInNeighbors() => LevelManager.instance.CheckParkingInNeighbors(position);
     public bool CheckWaterInNeighbors() => LevelManager.instance.CheckWaterInNeighbors(position);
 
-    private GameObject widgetsInfos;
+    public GameObject widgetsInfos;
+    public GameObject hoverPlane;
 
     public abstract void ApplyEffect();
     
+    void Start()
+    {
+        hoverPlane.SetActive(false);
+        widgetsInfos.SetActive(false);
+        if (hoverPlane != null)
+        {
+            Renderer renderer = hoverPlane.GetComponent<Renderer>();
+        }
+
+    }
     protected bool Wet() {
         WaterGiven++;
         if (WaterGiven < waterNested) return false;
@@ -34,11 +45,23 @@ public abstract class Case : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        Debug.Log("Has water in neighbors : " + CheckWaterInNeighbors());
-    }
+        widgetsInfos.SetActive(true);
+        if (CheckWaterInNeighbors())
+        {
+            hoverPlane.SetActive(true);
+            hoverPlane.GetComponent<Renderer>().material.color = Color.cyan;
+        }
+        else
+        {
+            hoverPlane.SetActive(true);
+            hoverPlane.GetComponent<Renderer>().material.color = Color.red;
+        }
+
+        }
 
     private void OnMouseExit()
     {
-        Debug.Log("Mouse exit");
+        widgetsInfos.SetActive(false);
+        hoverPlane.SetActive(false);
     }
 }
