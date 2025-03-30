@@ -302,14 +302,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8287860552718676342, guid: 842b945c23e0e00409b103b56a9bb6b7, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 9069473cff02a954e8d4d8057a14a3ec, type: 3}
     - target: {fileID: 8756140167682134866, guid: 842b945c23e0e00409b103b56a9bb6b7, type: 3}
       propertyPath: m_fontSizeBase
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 9016950438148361395, guid: 842b945c23e0e00409b103b56a9bb6b7, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: fc215a2276f4d354eaea977485e46cde, type: 3}
+    - target: {fileID: 9041973365040746135, guid: 842b945c23e0e00409b103b56a9bb6b7, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: aa8da25f735cd3c43ace258309e4eb6b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3722645826223025344, guid: 842b945c23e0e00409b103b56a9bb6b7, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3668277626848544868, guid: 842b945c23e0e00409b103b56a9bb6b7, type: 3}
+      insertIndex: 9
+      addedObject: {fileID: 421491767}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 842b945c23e0e00409b103b56a9bb6b7, type: 3}
 --- !u!114 &124137023 stripped
@@ -323,6 +338,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &124137024 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3668277626848544868, guid: 842b945c23e0e00409b103b56a9bb6b7, type: 3}
+  m_PrefabInstance: {fileID: 124137022}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &211656001
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,6 +727,78 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &421491766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 421491767}
+  - component: {fileID: 421491769}
+  - component: {fileID: 421491768}
+  m_Layer: 5
+  m_Name: Tuto5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &421491767
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421491766}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 11.989612, y: 4.812824, z: 0.66712666}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 124137024}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 361, y: -220}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &421491768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421491766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 90f701dc61ff53c43a670e41d1a5befd, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &421491769
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421491766}
+  m_CullTransparentMesh: 1
 --- !u!1 &431509483 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 370443678853071944, guid: 842b945c23e0e00409b103b56a9bb6b7, type: 3}
@@ -1142,6 +1234,7 @@ MonoBehaviour:
   - {fileID: 523340818}
   - {fileID: 431509483}
   - {fileID: 1681961087}
+  - {fileID: 421491766}
   - {fileID: 223408204}
   player: {fileID: 886635507}
   isEnded: 0
