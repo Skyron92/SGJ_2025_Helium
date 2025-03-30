@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 0
   scoreGoalLevel1: 80000
-  scoreGoalLevel2: 80000
+  scoreGoalLevel2: 120000
   step: 0.2
   plainePrefab:
   - {fileID: 3810086759784044683, guid: 46237fee7f87e9c48a5890f4e3065ee5, type: 3}

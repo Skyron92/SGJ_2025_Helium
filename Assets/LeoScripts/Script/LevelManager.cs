@@ -6,12 +6,12 @@ using Random = UnityEngine.Random;
 
 public class LevelManager : MonoBehaviour {
 
-    private enum Level {
+    public enum Level {
         Level1,
         Level2,
     }
     
-    [SerializeField] private Level level;
+    public Level level;
     [SerializeField, Range(5000, 999999)] private int scoreGoalLevel1 = 80000;
     [SerializeField, Range(5000, 999999)] private int scoreGoalLevel2 = 200000;
     

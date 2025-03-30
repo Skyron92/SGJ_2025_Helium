@@ -20,21 +20,25 @@ public class Player : MonoBehaviour
 
     private int _score;
     public TextMeshProUGUI scoreText;
+    
+    [SerializeField] GameObject winPrefab, losePrefab, endGamePrefab;
 
     public void AddScore(int increment) {
         _score += increment;
         scoreText.text = _score+" 000";
-        if (_score >= LevelManager.instance.GetScoreGoal()) {
+        if (_score * 1000 >= LevelManager.instance.GetScoreGoal()) {
             Win();
         }
     }
 
     private void Win() {
-        // Mettre la win ici
+        SetPause();
+        Instantiate(LevelManager.instance.level == LevelManager.Level.Level1 ? winPrefab : endGamePrefab);
     }
 
     public void Loose() {
-        // Mettre la loose ici
+        SetPause();
+        Instantiate(losePrefab);
     }
 
     void Start() {

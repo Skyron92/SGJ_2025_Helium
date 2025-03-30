@@ -55,6 +55,9 @@ MonoBehaviour:
   turnButton: {fileID: 0}
   is_paused: 0
   scoreText: {fileID: 0}
+  winPrefab: {fileID: 3772400763658763358, guid: 5b1cb75d57e94fd46aef26f205182673, type: 3}
+  losePrefab: {fileID: 3772400763658763358, guid: ee872fbd140e24d4bb5991649b5282b1, type: 3}
+  endGamePrefab: {fileID: 3772400763658763358, guid: 42adaec0d15c8c641be5e339b38d75f2, type: 3}
 --- !u!114 &3689526508343105263
 MonoBehaviour:
   m_ObjectHideFlags: 0
