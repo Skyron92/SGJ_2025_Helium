@@ -132,7 +132,7 @@ MonoBehaviour:
   waterGiven: 0
   flooded: 0
   widgetsInfos: {fileID: 4537569664098868122}
-  hoverPlane: {fileID: 0}
+  hoverPlane: {fileID: 5928230443169717809}
   house: {fileID: 5838676596444615669}
   destroyedHousePrefab: {fileID: 152879424930249740, guid: 1964636dd2a222e49b42d8069da9dbfb, type: 3}
   score: 10
@@ -593,6 +593,11 @@ PrefabInstance:
 --- !u!4 &4960919426694228994 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8811789358877707951, guid: ea41c7a42f5bbe849a7602e02b019fa8, type: 3}
+  m_PrefabInstance: {fileID: 4508519199144452781}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5928230443169717809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7841950570683382940, guid: ea41c7a42f5bbe849a7602e02b019fa8, type: 3}
   m_PrefabInstance: {fileID: 4508519199144452781}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6757172678122729124
