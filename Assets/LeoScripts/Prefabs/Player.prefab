@@ -45,10 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226d2b8bce2f46ebb8c6dd7a77b8f75f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterSounds:
+  - {fileID: 8300000, guid: 693f64267cb44a24b85d23a604a087cb, type: 3}
+  - {fileID: 8300000, guid: 53a0b6da6abdf5c4fb8f2592569c268f, type: 3}
+  - {fileID: 8300000, guid: 2d6c9f65d049baf4e89128b6458c8e13, type: 3}
+  clickSound: {fileID: 8300000, guid: 7ad2ea81b66af4e4f8c74ad2a7a0bc51, type: 3}
   waterCount: 3
   waterText: {fileID: 0}
   turnButton: {fileID: 0}
   is_paused: 0
+  scoreText: {fileID: 0}
 --- !u!114 &3689526508343105263
 MonoBehaviour:
   m_ObjectHideFlags: 0

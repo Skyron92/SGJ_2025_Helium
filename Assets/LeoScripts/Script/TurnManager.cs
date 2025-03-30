@@ -19,6 +19,10 @@ public class TurnManager : MonoBehaviour
     private void SkipTurn() {
         _turnCounter++;
         turnText.text = _turnCounter + "/10";
+        if (_turnCounter >= 10) {
+            Player.instance.Loose();
+            return;
+        }
         DoAction();
         nextTurnButton.interactable = true;
         player.ChangeWater(3);
@@ -43,11 +47,8 @@ public class TurnManager : MonoBehaviour
             Destroy(oldTile.gameObject);
         }
         if (type == typeof(Forest)) {
-            Debug.Log("On est tombé sur forêt !");
             var oldTile = level.CurrentGrid[tileCoord.x, tileCoord.y];
-            Debug.Log("On récupère " + oldTile);
             level.CurrentGrid[tileCoord.x, tileCoord.y] = new Parking(tileCoord.x, tileCoord.y);
-            Debug.Log("On le remplace par "+level.CurrentGrid[tileCoord.x, tileCoord.y]);
             var go = level.SpawnCase(typeof(Parking), oldTile.transform.position + Vector3.down);
             level.InsertSpawnedCase(go, tileCoord.x, tileCoord.y);
             Destroy(oldTile.gameObject);
@@ -58,6 +59,6 @@ public class TurnManager : MonoBehaviour
         int x = Random.Range(0, 16);
         int y = Random.Range(0, 16);
         var tile = LevelManager.instance.CurrentGrid[x, y];
-        return tile is House or Building ? PickTile() : new(x,y);
+        return tile is House {flooded:false} or Building {flooded:false} ? PickTile() : new(x,y);
     }
 }

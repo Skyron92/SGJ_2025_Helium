@@ -15,10 +15,32 @@ public class Player : MonoBehaviour
     [SerializeField] private TextMeshProUGUI waterText;
     [SerializeField] private Button turnButton;
     public bool is_paused;
+    
+    public static Player instance;
 
-    void Start()
-    {
+    private int _score;
+    public TextMeshProUGUI scoreText;
+
+    public void AddScore(int increment) {
+        _score += increment;
+        scoreText.text = _score+" 000";
+        if (_score >= LevelManager.instance.GetScoreGoal()) {
+            Win();
+        }
+    }
+
+    private void Win() {
+        // Mettre la win ici
+    }
+
+    public void Loose() {
+        // Mettre la loose ici
+    }
+
+    void Start() {
+        instance = this;
         audioSource = gameObject.AddComponent<AudioSource>();
+        scoreText.text = "";
     }
 
 
@@ -26,8 +48,8 @@ public class Player : MonoBehaviour
         waterCount += amount;
         waterCount = Mathf.Clamp(waterCount, 0, 5);
         waterText.text = waterCount.ToString();
-        waterText.transform.DOScale(Vector3.one * 1.3f, 0.2f).onComplete += () => 
-            waterText.transform.DOScale(Vector3.one, 0.2f);
+        waterText.transform.DOScale(new Vector3(1,3,1) * 1.3f, 0.2f).onComplete += () => 
+            waterText.transform.DOScale(new Vector3(1,3,1), 0.2f);
     }
 
     public void SetPause() {
@@ -54,7 +76,7 @@ public class Player : MonoBehaviour
             }
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit)) {
                 if (hit.transform.gameObject.TryGetComponent(out Case hitCase)) {
-                    if (!hitCase.CheckWaterInNeighbors()) return;
+                    if (!hitCase.CheckWaterInNeighbors() || LevelManager.instance.IsWater(hitCase.position)) return;
                     audioSource.PlayOneShot(clickSound);
                     ChangeWater(-1);
                     int randomIndex = Random.Range(0, waterSounds.Count);

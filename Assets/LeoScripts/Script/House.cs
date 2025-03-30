@@ -13,6 +13,7 @@ public class House : Case
         Wet();
         Instantiate(destroyedHousePrefab, house.transform.position, new Quaternion(180,0,0,0), transform);
         audioSource.PlayOneShot(soundClip);
+        Player.instance.AddScore(score);
         Destroy(house);
         
     }

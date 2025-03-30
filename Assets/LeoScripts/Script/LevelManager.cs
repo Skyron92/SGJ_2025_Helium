@@ -21,6 +21,11 @@ public class LevelManager : MonoBehaviour {
         InitializeLevel();
     }
 
+    public int GetScoreGoal()
+    {
+        return level == Level.Level1 ? 20000 : 100000;
+    }
+
     [SerializeField, Range(0, 2)] private float step = 0.2f;
 
     [Header("Cases prefabs")] 

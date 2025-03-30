@@ -4,7 +4,7 @@ using UnityEngine;
 public class Building : Case
 {
     [SerializeField] GameObject house, destroyedHousePrefab;
-    [SerializeField, Range(0,15)] private int score = 5;
+    [SerializeField, Range(0,15)] private int score = 10;
     
     [SerializeField] private JaugeGoutte waterSlider;
     [SerializeField] private GameObject waterCanvas;
@@ -28,6 +28,7 @@ public class Building : Case
         if (!shouldDestroy) return;
         Instantiate(destroyedHousePrefab, house.transform.position, Quaternion.identity, transform);
         audioSource.PlayOneShot(soundClip);
+        Player.instance.AddScore(score);
         Destroy(house);
     }
 }

@@ -14,6 +14,7 @@ public class Digue : Case {
     [SerializeField] private AudioSource audioSource;
 
     private void OnEnable() {
+        if(gameObject == null) return;
         waterCanvas.SetActive(false);
         waterCanvas.transform.localScale = Vector3.zero;
         waterCanvas.transform.DOScale(Vector3.one, 0.5f);
@@ -22,10 +23,29 @@ public class Digue : Case {
 
     private void SpawnDigues() {
         var level = LevelManager.instance;
-        if(position.x < 15 && level.IsWater(position + Vector2Int.right)) Instantiate(digue, transform.position, Quaternion.identity, transform);
-        if(position.x > 0 && level.IsWater(position + Vector2Int.left)) Instantiate(digue, transform.position, new Quaternion(0,180,0,0), transform);
-        if(position.y < 15 && level.IsWater(position + Vector2Int.up)) Instantiate(digue, transform.position, new Quaternion(0,90,0,0), transform);
-        if(position.y > 0 && level.IsWater(position + Vector2Int.down)) Instantiate(digue, transform.position, new Quaternion(0,-90,0,0), transform);
+        if (position.x < 15 && !level.IsWater(position + Vector2Int.right)) {
+            Debug.Log("Pas d'eau à droite, je met une digue ! ");
+            var go = Instantiate(digue, transform.position, new(0,0,0,0), transform);
+            go.name = "Droite";
+        }
+
+        if (position.x > 0 && !level.IsWater(position + Vector2Int.left)) {
+            Debug.Log("Pas d'eau à gauche, je met une digue ! ");
+            var go = Instantiate(digue, transform.position, new (0,180,0,0), transform);
+            go.name = "Gauche";
+        }
+
+        if (position.y < 15 && !level.IsWater(position + Vector2Int.up)) {
+            Debug.Log("Pas d'eau en haut, je met une digue ! ");
+            var go = Instantiate(digue, transform.position, new (0,90,0,0), transform);
+            go.name = "Haut";
+        }
+
+        if (position.y > 0 && !level.IsWater(position + Vector2Int.down)) {
+            Debug.Log("Pas d'eau en bas, je met une digue ! ");
+            var go = Instantiate(digue, transform.position, new (0,-90,0,0), transform);
+            go.name = "Bas";
+        }
     }
 
     public override void ApplyEffect() {
