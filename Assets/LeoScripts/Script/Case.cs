@@ -32,16 +32,13 @@ public abstract class Case : MonoBehaviour
         Instantiate(waterPrefab, transform.position + Vector3.down, Quaternion.identity);
     }
 
-   void OnMouseEnter()
+    private void OnMouseEnter()
     {
-        
-        if (CheckWaterInNeighbors())
-        {
-            Debug.Log("Yes");
-        }
-        else
-        {
-            Debug.Log("No");
-        }
+        Debug.Log("Has water in neighbors : " + CheckWaterInNeighbors());
+    }
+
+    private void OnMouseExit()
+    {
+        Debug.Log("Mouse exit");
     }
 }
