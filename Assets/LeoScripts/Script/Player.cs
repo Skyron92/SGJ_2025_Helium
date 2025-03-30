@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
     void Start() {
         instance = this;
         audioSource = gameObject.AddComponent<AudioSource>();
-        scoreText.text = "";
+        scoreText.text = "0";
     }
 
 
