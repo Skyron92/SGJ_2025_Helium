@@ -10,7 +10,15 @@ public class Building : Case
     [SerializeField] private GameObject waterCanvas;
     
     public Building(int x, int y) : base(x, y) {}
-    
+
+    public AudioClip soundClip;
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+    }
+
     private void OnEnable() {
         waterCanvas.SetActive(false);
         waterCanvas.transform.localScale = Vector3.zero;
@@ -23,7 +31,8 @@ public class Building : Case
         waterCanvas.SetActive(true);
         waterSlider.SetImage(waterNested, waterGiven);
         if (!shouldDestroy) return;
-        Instantiate(destroyedHousePrefab, house.transform.position, Quaternion.identity, transform); 
+        Instantiate(destroyedHousePrefab, house.transform.position, Quaternion.identity, transform);
+        audioSource.PlayOneShot(soundClip);
         Destroy(house);
     }
 }

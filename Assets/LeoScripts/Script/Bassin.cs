@@ -8,6 +8,14 @@ public class Bassin : Case
     [SerializeField] private JaugeGoutte waterSlider;
     [SerializeField] private GameObject waterCanvas;
 
+    public AudioClip soundClip;
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+    }
+
     private void OnEnable() {
         waterCanvas.SetActive(false);
         waterCanvas.transform.localScale = Vector3.zero;
@@ -18,5 +26,6 @@ public class Bassin : Case
         waterSlider.shouldDestroy = Wet();
         waterCanvas.SetActive(true);
         waterSlider.SetImage(waterNested, waterGiven);
+        audioSource.PlayOneShot(soundClip);
     }
 }

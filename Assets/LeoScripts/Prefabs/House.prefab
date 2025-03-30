@@ -134,6 +134,7 @@ MonoBehaviour:
   house: {fileID: 867598849428227823}
   destroyedHousePrefab: {fileID: 3882781496782868996, guid: 41f1dee1057d04f42b653a3556b4f06d, type: 3}
   score: 5
+  soundClip: {fileID: 8300000, guid: ad70c7a678c97dc49943edd31a237e86, type: 3}
 --- !u!1 &4166086228851597025
 GameObject:
   m_ObjectHideFlags: 0

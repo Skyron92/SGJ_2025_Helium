@@ -77,6 +77,7 @@ MonoBehaviour:
   waterSlider: {fileID: 0}
   waterCanvas: {fileID: 0}
   digue: {fileID: 0}
+  soundClip: {fileID: 8300000, guid: ad70c7a678c97dc49943edd31a237e86, type: 3}
 --- !u!1001 &1882346902336367196
 PrefabInstance:
   m_ObjectHideFlags: 0

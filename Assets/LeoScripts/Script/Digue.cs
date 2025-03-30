@@ -10,6 +10,14 @@ public class Digue : Case {
 
     [SerializeField] private GameObject digue;
 
+    public AudioClip soundClip;
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+    }
+
     private void OnEnable() {
         waterCanvas.SetActive(false);
         waterCanvas.transform.localScale = Vector3.zero;
@@ -32,6 +40,7 @@ public class Digue : Case {
         waterSlider.SetImage(waterNested, waterGiven);
         if (!shouldDestroy) return;
         LevelManager.instance.BreakDigue(position);
+        audioSource.PlayOneShot(soundClip);
         Destroy(gameObject);
     }
 }

@@ -253,6 +253,7 @@ MonoBehaviour:
   hoverPlane: {fileID: 801005913540886197}
   waterSlider: {fileID: 3130074904076623939}
   waterCanvas: {fileID: 8384374822708211134}
+  soundClip: {fileID: 8300000, guid: ad70c7a678c97dc49943edd31a237e86, type: 3}
 --- !u!1001 &1804607196862071874
 PrefabInstance:
   m_ObjectHideFlags: 0
