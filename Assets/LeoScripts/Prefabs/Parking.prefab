@@ -317,6 +317,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HoverPlane
       objectReference: {fileID: 0}
+    - target: {fileID: 7841950570683382940, guid: ea41c7a42f5bbe849a7602e02b019fa8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8811789358877707951, guid: ea41c7a42f5bbe849a7602e02b019fa8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.011
