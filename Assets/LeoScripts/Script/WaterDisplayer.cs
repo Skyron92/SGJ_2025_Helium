@@ -10,7 +10,6 @@ public class WaterDisplayer : MonoBehaviour
     
     private void OnEnable() {
         _waterMaterial = renderer.material;
-        transform.DOMoveY(transform.position.y + 1f, 1f).SetEase(Ease.OutBack);
         StartCoroutine(RevealWater());
     }
 

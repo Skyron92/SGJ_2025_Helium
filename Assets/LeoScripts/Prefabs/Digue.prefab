@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3757059609399971045}
   - component: {fileID: 7017121280474787985}
-  - component: {fileID: 4924620434199872684}
   m_Layer: 0
   m_Name: Digue
   m_TagString: Untagged
@@ -55,29 +54,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4924620434199872684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9020102880285446005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f426967b07e40ba870ceb1edb4ca1e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position: {x: 0, y: 0}
-  waterPrefab: {fileID: 0}
-  waterNested: 1
-  waterGiven: 0
-  flooded: 0
-  widgetsInfos: {fileID: 0}
-  hoverPlane: {fileID: 0}
-  waterSlider: {fileID: 0}
-  waterCanvas: {fileID: 0}
-  digue: {fileID: 0}
-  soundClip: {fileID: 8300000, guid: ad70c7a678c97dc49943edd31a237e86, type: 3}
 --- !u!1001 &1882346902336367196
 PrefabInstance:
   m_ObjectHideFlags: 0

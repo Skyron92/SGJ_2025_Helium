@@ -12,12 +12,7 @@ public class Building : Case
     public Building(int x, int y) : base(x, y) {}
 
     public AudioClip soundClip;
-    private AudioSource audioSource;
-
-    void Start()
-    {
-        audioSource = gameObject.AddComponent<AudioSource>();
-    }
+    [SerializeField] private AudioSource audioSource;
 
     private void OnEnable() {
         waterCanvas.SetActive(false);

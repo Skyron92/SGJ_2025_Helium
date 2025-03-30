@@ -11,12 +11,7 @@ public class Digue : Case {
     [SerializeField] private GameObject digue;
 
     public AudioClip soundClip;
-    private AudioSource audioSource;
-
-    void Start()
-    {
-        audioSource = gameObject.AddComponent<AudioSource>();
-    }
+    [SerializeField] private AudioSource audioSource;
 
     private void OnEnable() {
         waterCanvas.SetActive(false);
@@ -27,10 +22,10 @@ public class Digue : Case {
 
     private void SpawnDigues() {
         var level = LevelManager.instance;
-        if(position.x < 15 && level.IsWater(position + Vector2Int.right)) Instantiate(digue, transform.position, Quaternion.identity);
-        if(position.x > 0 && level.IsWater(position + Vector2Int.left)) Instantiate(digue, transform.position, new Quaternion(0,180,0,0));
-        if(position.y < 15 && level.IsWater(position + Vector2Int.up)) Instantiate(digue, transform.position, new Quaternion(0,90,0,0));
-        if(position.y > 0 && level.IsWater(position + Vector2Int.down)) Instantiate(digue, transform.position, new Quaternion(0,-90,0,0));
+        if(position.x < 15 && level.IsWater(position + Vector2Int.right)) Instantiate(digue, transform.position, Quaternion.identity, transform);
+        if(position.x > 0 && level.IsWater(position + Vector2Int.left)) Instantiate(digue, transform.position, new Quaternion(0,180,0,0), transform);
+        if(position.y < 15 && level.IsWater(position + Vector2Int.up)) Instantiate(digue, transform.position, new Quaternion(0,90,0,0), transform);
+        if(position.y > 0 && level.IsWater(position + Vector2Int.down)) Instantiate(digue, transform.position, new Quaternion(0,-90,0,0), transform);
     }
 
     public override void ApplyEffect() {

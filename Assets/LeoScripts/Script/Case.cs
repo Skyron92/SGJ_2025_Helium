@@ -1,5 +1,5 @@
+using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public abstract class Case : MonoBehaviour
 {
@@ -22,6 +22,7 @@ public abstract class Case : MonoBehaviour
     public abstract void ApplyEffect();
     
     void Start() {
+        transform.DOMoveY(transform.position.y + 1, 1f).SetEase(Ease.OutBack);
         hoverPlane.SetActive(false);
         widgetsInfos.SetActive(false);
         if (hoverPlane != null) {
@@ -32,7 +33,7 @@ public abstract class Case : MonoBehaviour
         waterGiven++;
         if (waterGiven < waterNested) return false;
         Flood();
-        Invoke("CheckParkingInNeighbors", 0.3f);
+        Invoke(nameof(CheckParkingInNeighbors), 0.3f);
         return true;
     }
     

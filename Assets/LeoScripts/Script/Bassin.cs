@@ -9,12 +9,7 @@ public class Bassin : Case
     [SerializeField] private GameObject waterCanvas;
 
     public AudioClip soundClip;
-    private AudioSource audioSource;
-
-    void Start()
-    {
-        audioSource = gameObject.AddComponent<AudioSource>();
-    }
+    [SerializeField] private AudioSource audioSource;
 
     private void OnEnable() {
         waterCanvas.SetActive(false);

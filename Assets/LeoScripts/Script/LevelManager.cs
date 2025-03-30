@@ -88,7 +88,7 @@ public class LevelManager : MonoBehaviour {
                 Vector3 position = new(i + i* step, 0, j + j * step);
                 var @case = CurrentGrid[i, j];
                 Type type = @case.GetType();
-                var go = SpawnCase(type, position);
+                var go = SpawnCase(type, position + Vector3.down);
                 if (go != null) {
                     var spawnedCase = go.GetComponent<Case>();
                     if(spawnedCase == null) continue;
@@ -107,7 +107,7 @@ public class LevelManager : MonoBehaviour {
         if (type == typeof(Digue)) return Instantiate(diguePrefab, position, Quaternion.identity);
         if (type == typeof(House)) return Instantiate(housePrefab, position, Quaternion.identity);
         if (type == typeof(Building)) return Instantiate(buildingPrefabs[Random.Range(0,buildingPrefabs.Count-1)], position, Quaternion.identity);
-        if (type == typeof(Water)) return Instantiate(waterPrefab, position + Vector3.down, Quaternion.identity);
+        if (type == typeof(Water)) return Instantiate(waterPrefab, position, Quaternion.identity);
         return null;
     }
 

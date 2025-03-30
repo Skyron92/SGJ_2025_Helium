@@ -31,19 +31,19 @@ public class TurnManager : MonoBehaviour
         if (level.CurrentGrid[tileCoord.x, tileCoord.y].flooded || type == typeof(Water)) {
             var oldTile = level.CurrentGrid[tileCoord.x, tileCoord.y];
             level.CurrentGrid[tileCoord.x, tileCoord.y] = new Digue(tileCoord.x, tileCoord.y);
-            level.SpawnCase(typeof(Digue), oldTile.transform.position);
+            level.SpawnCase(typeof(Digue), oldTile.transform.position + Vector3.down);
             Destroy(oldTile.gameObject);
         }
         if (type == typeof(Plaine)) {
             var oldTile = level.CurrentGrid[tileCoord.x, tileCoord.y]; 
             level.CurrentGrid[tileCoord.x, tileCoord.y] = new Bassin(tileCoord.x, tileCoord.y);
-            LevelManager.instance.SpawnCase(typeof(Bassin), oldTile.transform.position);
+            LevelManager.instance.SpawnCase(typeof(Bassin), oldTile.transform.position + Vector3.down);
             Destroy(oldTile.gameObject);
         }
         if (type == typeof(Forest)) {
             var oldTile = level.CurrentGrid[tileCoord.x, tileCoord.y];
             level.CurrentGrid[tileCoord.x, tileCoord.y] = new Parking(tileCoord.x, tileCoord.y);
-            LevelManager.instance.SpawnCase(typeof(Parking), oldTile.transform.position);
+            var go = LevelManager.instance.SpawnCase(typeof(Parking), oldTile.transform.position + Vector3.down);
             Destroy(oldTile.gameObject);
         }
     }

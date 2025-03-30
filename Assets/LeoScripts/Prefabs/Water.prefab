@@ -204,7 +204,7 @@ Transform:
   m_GameObject: {fileID: 8994159673993912070}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.007586, y: -13.45036, z: -0.41174254}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -317,6 +317,7 @@ MonoBehaviour:
   waterNested: 1
   waterGiven: 0
   flooded: 0
+  heightAnimation: 2
   widgetsInfos: {fileID: 8053511486693499126}
   hoverPlane: {fileID: 7727616172089167384}
 --- !u!1001 &570327167996621444

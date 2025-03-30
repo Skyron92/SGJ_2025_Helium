@@ -5,13 +5,9 @@ public class House : Case
     [SerializeField] GameObject house, destroyedHousePrefab;
     [SerializeField, Range(0,15)] private int score = 5;
     public AudioClip soundClip;
-    private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;
 
     public House(int x, int y) : base(x, y) {}
-    void Start()
-    {
-        audioSource = gameObject.AddComponent<AudioSource>();
-    }
 
     public override void ApplyEffect() {
         Wet();
