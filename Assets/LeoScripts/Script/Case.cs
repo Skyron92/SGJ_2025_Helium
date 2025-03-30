@@ -48,10 +48,15 @@ public abstract class Case : MonoBehaviour
         if (CheckWaterInNeighbors())
         {
             hoverPlane.SetActive(true);
-            GetComponent<Renderer>().material.color = Color.green;
+            hoverPlane.GetComponent<Renderer>().material.color = Color.cyan;
         }
-        
-    }
+        else
+        {
+            hoverPlane.SetActive(true);
+            hoverPlane.GetComponent<Renderer>().material.color = Color.red;
+        }
+
+        }
 
     private void OnMouseExit()
     {
